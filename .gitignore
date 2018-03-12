@@ -5,6 +5,9 @@
 *.sqlite3
 
 migrations/
+media/
+node_modules/
+static/bundles/
 
 # User-specific stuff:
 .idea/**/workspace.xml

@@ -8,18 +8,24 @@ from app_mascota.models import Mascota
 
 TIPO_AVISO_CHOICES = (
     (1, 'Aviso Adopcion'),
-    (2, 'Aviso Adoptar'),
-    (3, 'Aviso Desaparecida'),
-    (4, 'Aviso Encontrada'),
+    (2, 'Adoptar Mascota'),
+    (3, 'Mascota Desaparecida'),
+    (4, 'Mascota Encontrada'),
 )
 
 
 class Aviso(models.Model):
-    usuario = models.ForeignKey(Usuario, blank=True, null=True)
+    usuario = models.ForeignKey(Usuario, related_name='avisos', blank=True, null=True)
     descripcion = models.TextField()
     titulo = models.CharField(max_length=35, blank=True, null=True)
     fecha_publicacion = models.DateTimeField(auto_now=True, auto_created=True, blank=True)
-    tipo_aviso = models.SmallIntegerField()
+    tipo_aviso = models.SmallIntegerField(choices=TIPO_AVISO_CHOICES)
+
+    def get_tipo_aviso(self):
+        return {'key': self.tipo_aviso, 'value': self.get_tipo_aviso_display()}
+
+    def __unicode__(self):
+        return self.titulo
 
 
 class AvisoAdopcion(Aviso):
@@ -42,5 +48,5 @@ class AvisoEncontrada(Aviso):
 
 
 class Imagen(models.Model):
-    aviso = models.ForeignKey(Aviso, on_delete=models.CASCADE)
-    archivo = models.ImageField(upload_to='image')
+    aviso = models.ForeignKey(Aviso, on_delete=models.CASCADE, related_name='imagenes')
+    archivo = models.ImageField(upload_to='media/image')

@@ -24,6 +24,7 @@ class ListCreateRelation(generics.GenericAPIView):
     related_queryset_name = None
     related_model_name = None
     related_model_class = None
+    many = True
 
     def get_queryset(self):
         pass
@@ -34,8 +35,10 @@ class ListCreateRelation(generics.GenericAPIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         queryset = getattr(parent_instance, self.related_queryset_name)
-        instances = queryset.all()
-        serializer = self.get_serializer(instances, many=True)
+        serializer = self.get_serializer(queryset, many=self.many)
+        if self.many:
+            instances = queryset.all()
+            serializer = self.get_serializer(instances, many=self.many)
         return Response(serializer.data, status.HTTP_200_OK)
 
     def post(self, request, pk):

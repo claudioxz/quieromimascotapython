@@ -19,11 +19,8 @@ class UsuarioSerializer(serializers.ModelSerializer):
                   'numero_fijo', 'fecha_creada', 'auth')
 
     def create(self, validated_data):
-        auth = validated_data.get('auth')
-        del validated_data['auth']
-        usuario_data = validated_data
-
-        usuario = Usuario.objects.create(**usuario_data)
+        auth = validated_data.pop('auth')
+        usuario = Usuario.objects.create(**validated_data)
         usuario.save()
         UsuarioAuth.objects.create(usuario=usuario, **auth)
         return usuario

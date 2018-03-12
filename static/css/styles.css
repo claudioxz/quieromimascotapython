@@ -1,0 +1,129 @@
+.navbar-inverse {
+    background-color: #1F8A70;
+    border-color: #1F8A70;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.cat_index {
+    width: 100%;
+    text-align: center;
+}
+.link{
+    text-decoration: none;
+    color: #1F8A70;
+}
+.link:hover{
+    text-decoration: underline;
+}
+
+.region-list{
+    list-style-type: none;
+    display: inline-block;
+}
+.region-list li{
+    float: left;
+    text-align: left;
+    width: 25%;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.icon-region{
+    width: 32px;
+    background: #1F8A70;
+    padding: 4px;
+    color: #FFFFFF;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.icon-region:hover{
+    background: #45A48D;
+}
+
+@media (max-width: 991px){
+    .cat_index a{
+        width: 100% !important;
+        display: block;
+        margin-bottom: 10px;
+        border-radius: 4px !important;
+    }
+    .region-list li{
+        display: block;
+        width: 100%;
+    }
+}
+
+.aviso{
+    text-decoration: none;
+    display: block;
+    border: 1px solid #1F8A70;
+    margin-bottom: 21px;
+    line-height: 1.42857143;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: border 0.2s ease-in-out;
+    cursor: pointer;
+}
+.aviso:hover{
+    background-color: #EBF2FA;
+}
+
+.aviso-container-imagen{
+    width: 202px;
+    height: 202px;
+    background: #F7FBFF;
+    margin: 0 auto;
+}
+
+.aviso-imagen{
+    position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);
+    max-width: 100%;
+    min-width:25%;
+}
+
+.aviso-cotainer-date{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.aviso-tipo{
+    border:0;
+    background: #EBF2FA;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #000000;
+    text-align: center;
+}
+
+.aviso-container-title{
+    background: #1F8A70;
+    margin-bottom: 5px;
+    border-radius: 5px 5px 0 0;
+    padding:10px;
+}
+
+.aviso-title{
+    text-align: center;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 400;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.aviso-container-region{
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 0.5em;
+    font-size: 13px;
+}
+.aviso-region{
+    margin-bottom: 5px;
+}

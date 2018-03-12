@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from rest_framework import generics
 from .serializers import *
 from .models import *
+from quieromimascotapython.utils import ListCreateRelation
 
 
 class AvisoList(generics.ListAPIView):
@@ -16,6 +17,13 @@ class AvisoDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Aviso.objects.all()
 
 
+class AvisoImagenesList(ListCreateRelation):
+    serializer_class = ImagenSerializer
+    related_queryset_name = "imagenes"
+    related_model_class = Aviso
+    related_model_name = "aviso"
+
+
 class AvisoDesaparecidaList(generics.ListCreateAPIView):
     serializer_class = AvisoDesaparecidaSerializer
     queryset = AvisoDesaparecida.objects.all()
@@ -24,6 +32,16 @@ class AvisoDesaparecidaList(generics.ListCreateAPIView):
 class AvisoDesaparecidaDetails(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = AvisoDesaparecidaSerializer
     queryset = AvisoDesaparecida.objects.all()
+
+
+class AvisoAdoptarList(generics.ListCreateAPIView):
+    serializer_class = AvisoAdoptarSerializer
+    queryset = AvisoAdoptar.objects.all()
+
+
+class AvisoAdoptarDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = AvisoAdoptarSerializer
+    queryset = AvisoAdoptar.objects.all()
 
 
 class AvisoAdopcionList(generics.ListCreateAPIView):

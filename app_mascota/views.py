@@ -35,7 +35,7 @@ class RazaDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RazaSerializer
 
 
-class MascotaList(generics.CreateAPIView):
+class MascotaList(generics.ListCreateAPIView):
     queryset = Mascota.objects.all()
     serializer_class = MascotaSerializer
 
