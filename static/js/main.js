@@ -17,8 +17,8 @@ ReactDOM.render(
 );
 
 if (module.hot){
-    module.hot.accept(App);
-}
+    module.hot.accept(App, ()=>{
 
-export const api_url = "api";
+    });
+}
 

@@ -33,3 +33,4 @@ class Comuna(models.Model):
 class Direccion(models.Model):
     comuna = models.ForeignKey(Comuna)
     usuario = models.ForeignKey(Usuario)
+

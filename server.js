@@ -5,13 +5,12 @@ const config = require('./webpack.config');
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true,
-    inline: true,
-    historyApiFallback: true
-}).listen(3000, '0.0.0.0', function (err, result) {
+    historyApiFallback: true,
+    headers: { "Access-Control-Allow-Origin": "*" }
+}).listen(3000, 'localhost',  (err, result) => {
     if (err) {
-        console.log(err)
+        return console.log(err);
     }
-    console.log(result)
 
-    console.log('Listening at 0.0.0.0:3000')
+    console.log('Listening at http://localhost:3000/');
 });
